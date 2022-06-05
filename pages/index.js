@@ -2,12 +2,13 @@ import { DrawableArea } from '../components/DrawableArea'
 import { ItemMenu } from '../components/ItemMenu'
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
+import { Sidebar } from '../components/Sidebar'
 
 export default function Home() {
   return (
     <div className={styles.main}>
       <section className={styles.sidebar}>
-        <h1>H</h1>
+        <Sidebar />
       </section>
       <section className={styles.content}>
         {/* Dropping zone */}
@@ -19,16 +20,24 @@ export default function Home() {
         <ItemMenu />
       </section>
 
-      <div>
+      <div style={
+        {
+          position: 'absolute',
+          top: '0',
+          left: '0',
 
-      <Link href="/component/">
+        }
+      }>
+
+        <Link href="/component/"
+        >
           <a>gg</a>
         </Link>
-      {/* <Button></Button> */}
+        {/* <Button></Button> */}
       </div>
     </div>
 
 
-    
+
   )
 }

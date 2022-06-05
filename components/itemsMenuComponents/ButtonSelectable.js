@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { darken } from '../helpers/darken';
+import { darken } from '../../helpers/darken';
 
-export const Button = ({
-    width = '30%',
+export const ButtonSelectable = ({
+    width = 'auto',
     title = "Hello world!",
     backgroundColor = "#000000",
     color = "#ffff",
@@ -10,7 +10,7 @@ export const Button = ({
     height = "auto",
     borderRadius = "0.5em",
     fontWeight = "normal",
-    fontFamily="Times New Roman",
+    fontFamily = "Times New Roman",
     action = () => { },
 
 }) => {
@@ -43,13 +43,13 @@ export const Button = ({
 
 
     const onMouseEnter = () => {
-        console.log('hover')
+        
         buttonRef.current.style.backgroundColor = newColors.backgroundColor
         buttonRef.current.style.color = newColors.color
     }
 
     const onMouseLeave = () => {
-        console.log('leave')
+        
         buttonRef.current.style.backgroundColor = stylesButton.backgroundColor
         buttonRef.current.style.color = stylesButton.color
     }
@@ -60,6 +60,7 @@ export const Button = ({
             style={stylesButton}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            onClick={action}
 
         >
             {title}

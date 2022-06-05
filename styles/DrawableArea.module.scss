@@ -20,25 +20,10 @@
     display: grid;
     height: 100%;
     grid-gap: 1px;
-    // grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    // grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 
 }
 
-.elementInside {
-    background-color: #ad1616;
-}
 
-.elementInside2 {
-    background-color: rgb(130, 130, 102);
 
-    grid-column: 2 / 3;
-    grid-row: 2;
-}
-
-.elementInside3 {
-    background-color: blue;
-
-    grid-column: 3 / 3;
-    grid-row: 3 / 3;
-}

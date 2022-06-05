@@ -14,14 +14,27 @@
 }
 
 .content {
-    width: 75%;
-
-}
-.sidebar {
-    background-color: green;
-    width: 5%;
+    width: calc(100% - 2rem);
 }
 
 .itemMenu {
     width: 20%;
+}
+
+.sidebar {
+    width: 5%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        max-width: 5.5rem;
+        margin-bottom: 3rem;
+    }
+    i {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 2rem;
+    }
 }

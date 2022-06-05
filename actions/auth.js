@@ -1,13 +1,4 @@
-// import { fetchConToken, fetchSinToken } from "../helpers/fetch"
-// import { types } from "../types/types";
-// import Swal from 'sweetalert2'
-// import { categoriesLogout } from "./category";
-// import { categoriesMenuLogout } from "./categoryMenu";
-// import { menuLogout } from "./menu";
-// import { orderLogout } from "./order";
-// import { productsLogout } from "./products";
-// import { stockLogout } from "./stock";
-
+import { types } from "../types/types";
 
 
 
@@ -165,9 +156,9 @@
 //     }
 // }
 
-// const logout = () => ({
-//     type: types.authLogout
-// })
+const logout = () => ({
+    type: types.authLogout
+})
 // export const forgotPasswordCleaning = () => ({
 //     type: types.authForgotPasswordCleaning
 // })

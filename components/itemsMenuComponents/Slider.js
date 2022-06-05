@@ -35,11 +35,11 @@ export const Slider = ({
     navigation=false,
     imageArray,
     
+    
 }) => {
     return (
 
         <div style={{
-            backgroundColor: '#000',
             display: 'flex',
             // height: '100%',
         }}>

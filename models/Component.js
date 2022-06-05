@@ -1,15 +1,18 @@
 import mongoose, { Schema, model, Model } from 'mongoose';
-const pageSchema = new Schema({
-    description: { type: String, required: true },
-    domain: { type: String, required: true },
-   title:{ type:  String, required: true},
-   HtmlStruct:[
-
-   ]
+const componentSchema = new Schema({
+    width: { type : String},
+    title: { type : String},
+    background: { type : String},
+    color: { type : String},
+    fontSize: { type : String},
+    height: { type : String},
+    borderRadius: { type : String},
+    fontWeight: { type : String},
+    fontFamily: { type : String}
 }, {
     timestamps: true
 })
 
-const Page = mongoose.models.Page || model('Page', pageSchema);
+const Component = mongoose.models.Component || model('Component', componentSchema);
 
-export default Page;
+export default Component;

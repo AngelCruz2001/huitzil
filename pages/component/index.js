@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button } from '../../components/Button'
-import { Slider } from '../../components/Slider'
+import { ButtonSelectable } from '../../components/itemsMenuComponents/ButtonSelectable'
+import { Slider } from '../../components/itemsMenuComponents/Slider'
+import { ConnectWalletButton } from '../../components/itemsMenuComponents/ConnectWalletButton'
 const Component = () => {
   return (
     <div style={
@@ -16,6 +17,8 @@ const Component = () => {
       }}>
 
       <Slider />
+
+      <ConnectWalletButton />
       </div>
     </div>
   )
