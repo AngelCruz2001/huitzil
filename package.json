@@ -11,16 +11,25 @@
   "dependencies": {
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
+    "magic-sdk": "^8.1.1",
+    "mongoose": "^6.3.5",
+    "moralis": "^1.8.0",
     "multer": "^1.4.5-lts.1",
     "next": "12.1.6",
     "next-connect": "^0.12.2",
+    "normalize.css": "^8.0.1",
     "postcss": "^8.4.14",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-draggable": "^4.4.5",
+    "react-moralis": "^1.4.0",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "tailwindcss": "^3.0.24"
+    "sass": "^1.52.2",
+    "swiper": "^8.2.2",
+    "tailwindcss": "^3.0.24",
+    "web3uikit": "^0.1.156"
   },
   "devDependencies": {
     "eslint": "8.17.0",

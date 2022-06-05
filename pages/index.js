@@ -1,40 +1,34 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useState } from 'react';
-import { base } from '../apis/base'
-
-// import styles from '../styles/Home.module.css'
+import { DrawableArea } from '../components/DrawableArea'
+import { ItemMenu } from '../components/ItemMenu'
+import styles from '../styles/Home.module.scss'
+import Link from 'next/link'
 
 export default function Home() {
-
-  const [data, setData] = useState([]);
-
-  const handleGet = async () => {
-    const resp = await base.get('/hello')
-    setData(resp.data.names)
-  }
-
-  useEffect(() => {
-    handleGet();
-  }, [])
-
-
   return (
-    <div className='h-screen'>
+    <div className={styles.main}>
+      <section className={styles.sidebar}>
+        <h1>H</h1>
+      </section>
+      <section className={styles.content}>
+        {/* Dropping zone */}
+        <DrawableArea />
+      </section>
 
-      <div class="flex h-full ">
-        <div class="flex-none bg-slate-100 w-1/8">
-          minSidebar
-        </div>
-        <div class="flex-auto w-5/8 bg-slate-300">
-          content
-        </div>
-        <div class="flex-auto w-2/8 justify-center align-center bg-slate-500">
-          elements
-        </div>
+      <section className={styles.itemMenu}>
+        {/* Items zone */}
+        <ItemMenu />
+      </section>
+
+      <div>
+
+      <Link href="/component/">
+          <a>gg</a>
+        </Link>
+      {/* <Button></Button> */}
       </div>
-
-
     </div>
+
+
+    
   )
 }

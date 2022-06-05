@@ -1,12 +1,5 @@
 import nextConnect from 'next-connect';
-import multer from 'multer';
-
-const upload = multer({
-    storage: multer.diskStorage({
-        destination: './public/uploads',
-        filename: (req, file, cb) => cb(null, file.originalname),
-    }),
-});
+import {multerUpload} from './middlewares/multer'
 
 const apiRoute = nextConnect({
     onError(error, req, res) {
@@ -17,10 +10,10 @@ const apiRoute = nextConnect({
     },
 });
 
-apiRoute.use(upload.single('testFile'));
+apiRoute.use(multerUpload.array('testFiles'));
 
 apiRoute.post((req, res) => {
-    res.status(200).json({ data: 'success' });
+    res.status(200).json({ data: 'success!' });
 });
 
 export default apiRoute;
