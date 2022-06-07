@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeDrawableArea } from '../actions/drawable'
+import { unsetActiveItemElement } from '../actions/itemsElements'
 import { useElement } from '../hooks/useElement'
 import styles from '../styles/DrawableArea.module.scss'
 import { Draggable } from './Draggable'
@@ -21,6 +22,8 @@ export const DrawableArea = () => {
         }))
     }, [drawableArea.current])
 
+
+
     return (
         <div className={styles.mainContainer}>
 
@@ -31,12 +34,10 @@ export const DrawableArea = () => {
                         <Draggable
                             idElement={element.id}
                             container={element.container}
+                            key={index}
                         >
                             {
-                                console.log(element)
-                            }
-                            {
-                                generateElement(element.type, element.id, element.action, element)
+                                generateElement(element.type, element.id, element.action, element.style)
                             }
                         </Draggable>
                     ))

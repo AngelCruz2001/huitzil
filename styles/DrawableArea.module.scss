@@ -16,9 +16,15 @@
 .drawableArea {
     display: grid;
     height: 100%;
-    grid-gap: 1px;
+    background-color: white;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
     grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 
 }
 

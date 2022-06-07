@@ -13,7 +13,7 @@ export default function Component() {
     contractAddress: '0x65DFB4cE0C52559Bac889e40d8DcBD65242BAe76',
     functionName: 'storedData',
     params: {
-      _x: 10,
+      _x: 60,
     }
   })
 

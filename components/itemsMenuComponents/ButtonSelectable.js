@@ -1,80 +1,23 @@
 import React, { useRef, useState } from 'react'
 import { darken } from '../../helpers/darken';
+import { onClickAction } from '../../helpers/onClickAction';
 
-export const ButtonSelectable = ({
-    width = 'auto',
-    title = "Hello world!",
-    backgroundColor = "#000000",
-    color = "#ffff",
-    fontSize = "2rem",
-    height = "auto",
-    borderRadius = "0.5em",
-    fontWeight = "normal",
-    fontFamily = "Times New Roman",
-    action = '',
+export const ButtonSelectable = ({ style }) => {
 
-}) => {
 
     const buttonRef = useRef(null)
 
-    const [stylesButton, setStylesButton] = useState(
-        {
-            width,
-            height,
-            borderRadius,
-            fontSize,
-            backgroundColor,
-            color,
-            margin: "0.5em",
-            padding: "0.5em",
-            cursor: "pointer",
-            border: "none",
-            fontWeight,
-            fontFamily
-        })
-
-
-    const newColors = {
-        backgroundColor: darken(stylesButton.backgroundColor, 10),
-        color: darken(stylesButton.color, 10),
-    }
-
-
-
-
-    const onMouseEnter = () => {
-
-        buttonRef.current.style.backgroundColor = newColors.backgroundColor
-        buttonRef.current.style.color = newColors.color
-    }
-
-    const onMouseLeave = () => {
-
-        buttonRef.current.style.backgroundColor = stylesButton.backgroundColor
-        buttonRef.current.style.color = stylesButton.color
-    }
-
-    const onClick = () => {
-        console.log("Llegamos a la funcion")
-        try {
-            eval(action)
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-
-    console.log("action", action )
     return (
         <button
             ref={buttonRef}
-            style={stylesButton}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            onClick={onClick}
-
+            style={{
+                width: '100%',
+                height: "100%",
+                ...style,
+            }}
+            onClick={() => onClickAction(style.action)}
         >
-            {title}
+            {style.title}
         </button>
 
 

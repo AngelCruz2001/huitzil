@@ -1,7 +1,21 @@
 import { types } from "../types/types";
 
 const initialState = {
-    collections: [],
+    collections: [
+        {
+
+            collection_name: "Hats",
+        },
+        {
+
+            collection_name: "Jackets",
+        },
+        {
+
+            collection_name: "Sneakers",
+        }
+
+    ],
     activeCollection: {
     }
 
@@ -24,7 +38,8 @@ export const collectionsReducer = (state = initialState, action) => {
                 ...state,
                 collections: action.payload
             }
-            
+
+
 
 
 

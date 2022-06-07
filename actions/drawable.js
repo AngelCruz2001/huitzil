@@ -13,10 +13,15 @@ export const updateElementCoordinates = (payload) => (
         type: types.updateElementCoordinates,
         payload: payload
     }
-)    
+)
 
 export const addElement = (payload) => ({
     type: types.addElement,
     payload: payload
-    
+
+})
+
+export const updateElement = (payload) => ({
+    type: types.updateElement,
+    payload: payload
 })

@@ -10,7 +10,7 @@
             {
                 "indexed": false,
                 "name": "value",
-                "type": "int128"
+                "type": "string"
             }
         ],
         "name": "DataChange",
@@ -20,7 +20,7 @@
         "inputs": [
             {
                 "name": "_x",
-                "type": "int128"
+                "type": "string"
             }
         ],
         "outputs": [],
@@ -32,7 +32,7 @@
         "inputs": [
             {
                 "name": "_x",
-                "type": "int128"
+                "type": "string"
             }
         ],
         "name": "set",
@@ -53,7 +53,7 @@
         "outputs": [
             {
                 "name": "",
-                "type": "int128"
+                "type": "string"
             }
         ],
         "stateMutability": "view",

@@ -12,17 +12,17 @@ export const useDrawableElement = (idElement, container) => {
 
 
     useEffect(() => {
-        moveElement(xAndY.x, xAndY.y, xAndY.width, xAndY.height)
+        moveElement(xAndY.x, xAndY.y, Number(xAndY.width), Number(xAndY.height))
     }, [draggableElementRef])
 
 
     const moveElement = (x, y, width, height) => {
 
-        if (x + width > 10) {
-            x = 11 - width
+        if (x + Number(width) > 10) {
+            x = 11 - Number(width)
         }
-        if (y + height > 10) {
-            y = 11 - height
+        if (y + Number(height) > 10) {
+            y = 11 - Number(height)
         }
         if (x < 0) {
             x = 0
@@ -35,8 +35,8 @@ export const useDrawableElement = (idElement, container) => {
             id: idElement,
             x: x,
             y: y,
-            width: width,
-            height: height
+            width: Number(width),
+            height: Number(height)
         }))
 
         draggableElementRef.current.style.gridColumn = `${x} / span ${width}`

@@ -18,7 +18,7 @@ const addAgentToUser = async (req, res) => {
     await generateModel(attributes, collection_name, user_id)
     const models = await import('../../../../../models')
     models[`'${collection_name}_${user_id}'`]
-    res.json({ msg: 'Agent created successfully' })
+    res.json({ msg: 'koko' })
 }
 
 const getAgentsFromUser = async (req, res) => {
@@ -26,8 +26,8 @@ const getAgentsFromUser = async (req, res) => {
     const client = await db.connect();
     let agents = Object.keys(client.collections).filter(collectionName => collectionName.includes(`_${user_id}`));
     agents = agents.map(agent => ({
-        originalName: agent,
-        displayName: agent.split('_').slice(0, -1)[0],
+        original_name: agent,
+        collection_name: agent.split('_').slice(0, -1)[0],
         attributes: mongoose.models[agent].schema.obj
 
     }));

@@ -1,13 +1,13 @@
 
 import { combineReducers } from "redux";
-import { itemsElements } from "./itemsElements";
+import { itemsElementsReducer } from "./itemsElementsReducer";
 import { drawableReducer } from "./drawableReducer";
 import { projectReducer } from "./projectReducer";
 import { collectionsReducer } from "./collectionsReducer";
 
 export const rootReducers = combineReducers({
     // reducers
-    itemsElements: itemsElements,
+    itemsElements: itemsElementsReducer,
     drawable: drawableReducer,
     project: projectReducer,
     collection:collectionsReducer

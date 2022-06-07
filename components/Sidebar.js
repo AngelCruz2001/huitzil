@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from '../styles/Sidebar.module.scss'
 
-import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import the icons you need
@@ -12,6 +11,7 @@ import {
     faPaintBrush,
     faDatabase
 } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link';
 
 export const Sidebar = () => {
     return (

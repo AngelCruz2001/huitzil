@@ -9,10 +9,12 @@ export const types = {
 
     addElement: '[drawable] Add Element',
     removeElement: '[drawable] Remove Element',
-    updateElement: '[drawable] Update Element',
     updateElementContainer: '[drawable] Update Element Container',
     changeDrawableArea: '[drawable] Change Drawable Area',
     updateElementCoordinates: '[drawable] Update Element Coordinates',
+    setActiveItemElement: '[drawable] Set Active Item Element',
+    unsetActiveItemElement: '[drawable] Unset Active Item Element',
+    updateElement: '[drawable] Update Element',
 
     changeTitleProject: '[project] Change Title Project',
     changeDescriptionProject: '[project] Change Description Project',
@@ -25,7 +27,7 @@ export const types = {
     removeCollection: '[collection] Remove Collection',
     setActiveCollection: '[collection] Set Active Collection',
     setCollections: '[collection] Set Collections',
-    
+
 
 
 
