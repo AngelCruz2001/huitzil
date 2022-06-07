@@ -11,7 +11,7 @@ export const ButtonSelectable = ({
     borderRadius = "0.5em",
     fontWeight = "normal",
     fontFamily = "Times New Roman",
-    action = () => { },
+    action = '',
 
 }) => {
 
@@ -43,24 +43,35 @@ export const ButtonSelectable = ({
 
 
     const onMouseEnter = () => {
-        
+
         buttonRef.current.style.backgroundColor = newColors.backgroundColor
         buttonRef.current.style.color = newColors.color
     }
 
     const onMouseLeave = () => {
-        
+
         buttonRef.current.style.backgroundColor = stylesButton.backgroundColor
         buttonRef.current.style.color = stylesButton.color
     }
 
+    const onClick = () => {
+        console.log("Llegamos a la funcion")
+        try {
+            eval(action)
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    console.log("action", action )
     return (
         <button
             ref={buttonRef}
             style={stylesButton}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            onClick={action}
+            onClick={onClick}
 
         >
             {title}

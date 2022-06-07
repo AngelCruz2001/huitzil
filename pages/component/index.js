@@ -1,30 +1,38 @@
-import React from 'react'
-import { ButtonSelectable } from '../../components/itemsMenuComponents/ButtonSelectable'
-import { Slider } from '../../components/itemsMenuComponents/Slider'
-import { ConnectWalletButton } from '../../components/itemsMenuComponents/ConnectWalletButton'
-const Component = () => {
+import contractAddresses from "../../contracts/contractAddresess.json";
+import abi from "../../contracts/abi.json";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import { useEffect } from "react";
+
+export default function Component() {
+
+
+  const { enableWeb3, isWeb3Enabled } = useMoralis()
+
+  const { runContractFunction, data, error } = useWeb3Contract({
+    abi,
+    contractAddress: '0x65DFB4cE0C52559Bac889e40d8DcBD65242BAe76',
+    functionName: 'storedData',
+    params: {
+      _x: 10,
+    }
+  })
+
+  console.log(Number(data))
+
   return (
-    <div style={
+    <div>
       {
-        height: '100vh',
-        width: '100vw',
+        !isWeb3Enabled &&
+        <button onClick={enableWeb3}>Connect</button>
       }
-    }>
-      <Button />
-      <div style={{
-        height: '60%',
-        width: '100%',
-      }}>
 
-      <Slider />
+      {
+        isWeb3Enabled && <button onClick={runContractFunction}> Execute</button>
+      }
+      <p>
+        {JSON.stringify(data)}
+      </p>
 
-      <ConnectWalletButton />
-      </div>
-    </div>
-  )
-
-
-
+    </div >
+  );
 }
-
-export default Component;

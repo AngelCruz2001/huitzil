@@ -1,33 +1,53 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateElementCoordinates } from "../actions/drawable";
 
-export const useDrawableElement = (drawableAreaX, drawableAreaY) => {
+export const useDrawableElement = (idElement, container) => {
     const draggableElementRef = useRef(null)
-
-    const [xAndY, setXAndY] = useState({ x: 1, y: 1, width: 2, height: 2, differenceX: 0, differenceY: 0 })
-    console.log("DrawableAreaX: ", drawableAreaX)
-    const sizeFrameX = (drawableAreaX / 10)
-    const sizeFrameY = (drawableAreaY / 10)
+    const dispatch = useDispatch();
+    const drawableArea = useSelector(state => state.drawable.drawableArea)
+    const [xAndY, setXAndY] = useState(container)
+    const sizeFrameX = (drawableArea.maxX / 10)
+    const sizeFrameY = (drawableArea.maxY / 10)
 
 
     useEffect(() => {
-        moveElement(xAndY.x, xAndY.y)
-    }, [])
+        moveElement(xAndY.x, xAndY.y, xAndY.width, xAndY.height)
+    }, [draggableElementRef])
 
 
-    const moveElement = (x, y) => {
-        draggableElementRef.current.style.gridColumn = `${x} / span ${xAndY.width}`
-        draggableElementRef.current.style.gridRow = `${y} / span ${xAndY.height}`
+    const moveElement = (x, y, width, height) => {
+
+        if (x + width > 10) {
+            x = 11 - width
+        }
+        if (y + height > 10) {
+            y = 11 - height
+        }
+        if (x < 0) {
+            x = 0
+        }
+        if (y < 0) {
+            y = 0
+        }
+
+        dispatch(updateElementCoordinates({
+            id: idElement,
+            x: x,
+            y: y,
+            width: width,
+            height: height
+        }))
+
+        draggableElementRef.current.style.gridColumn = `${x} / span ${width}`
+        draggableElementRef.current.style.gridRow = `${y} / span ${height}`
     }
+
 
 
     const handleDrag = (e) => {
         // console.log(draggableElement.current.offsetLeft, draggableElement.current.offsetTop)
         // console.log("Difference:", draggableElement.current.offsetLeft - e.clientX, draggableElement.current.offsetTop - e.clientY)
-        setXAndY(prev => ({
-            ...prev,
-            differenceX: draggableElementRef.current.offsetLeft - e.clientX,
-            differenceY: draggableElementRef.current.offsetTop - e.clientY
-        }))
     }
 
 
@@ -48,7 +68,7 @@ export const useDrawableElement = (drawableAreaX, drawableAreaY) => {
             y: newY
         }))
 
-        moveElement(newX, newY)
+        moveElement(newX, newY, xAndY.width, xAndY.height)
 
     }
 
@@ -56,7 +76,8 @@ export const useDrawableElement = (drawableAreaX, drawableAreaY) => {
         draggableElementRef,
         xAndY,
         handleDrag,
-        handleDragEnd
+        handleDragEnd,
+        moveElement
     }
 
 }

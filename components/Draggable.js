@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useDrawableElement } from '../hooks/useDrawableElement'
 
 import styles from '../styles/Draggable.module.scss'
 
-export const Draggable = ({ children, drawableAreaX, drawableAreaY }) => {
-    console.log("DrawableAreaX: ", drawableAreaX)
-    const { draggableElementRef, xAndY, handleDrag, handleDragEnd } = useDrawableElement(drawableAreaX, drawableAreaY);
+export const Draggable = ({ children, idElement, container }) => {
+
+    const { draggableElementRef, handleDrag, handleDragEnd, moveElement } = useDrawableElement(idElement, container);
+
+
     return (
         <div
             ref={draggableElementRef}
@@ -13,10 +16,9 @@ export const Draggable = ({ children, drawableAreaX, drawableAreaY }) => {
             draggable
             onDragStart={handleDrag}
             onDragEnd={handleDragEnd}
-            // style={{
-            //     gridColumn: `${xAndY.x} / span ${xAndY.width}`,
-            //     gridRow: `${xAndY.y} / span ${xAndY.height}`
-            // }}
+            style={{
+                gridArea: `${container.x} / ${container.y} / span ${container.width} / span ${container.height}`,
+            }}
         >
             {children}
         </div>

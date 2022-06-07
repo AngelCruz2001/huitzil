@@ -31,7 +31,7 @@ const images = [
     },
 
 ];
-export const Slider = ({
+export const SliderSelectable = ({
     navigation=false,
     imageArray,
     

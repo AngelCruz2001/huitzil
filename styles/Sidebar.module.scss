@@ -1,6 +1,86 @@
-.logout {
-    margin-top: auto;
+
+@import 'abstracts/variables';
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-primary;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    
+    background-color: $color-primary;
+}
+.menuItem {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: .7rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    color: white;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: darken(white, 10%);
+        background-color: darken($color-primary, 10%);
+    }
+    h5 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.user {
+    margin-top: 3rem;
+    margin-bottom:3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: darken(white, 10%);
+       
+    }
+}
+.icon {
+    color: azure;
+    font-size: 4rem;
+    background-color: red;
+}
+.logout {
+    margin-bottom: 3rem;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: darken(white, 10%);
+        background-color: darken($color-primary, 10%);
+    }
 }
 .seeUsers {
     cursor: pointer;
